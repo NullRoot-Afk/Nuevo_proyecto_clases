@@ -44,7 +44,7 @@ body {
     align-items: center;
     padding: 15px 20px;
     background: #1e1e1e;
-    z-index: 10;
+    z-index: 1;
 }
 
 .foto {
@@ -52,6 +52,7 @@ body {
     height: 48px;
     border-radius: 50%;
     object-fit: cover;
+    z-index: 10;
 }
 
 /* Hamburger */
@@ -128,10 +129,15 @@ body {
 .side-menu.active::after {
     width: 80%; 
     margin: 10px auto;
-}
 
+}
 .side-menu a:hover {
     background: #db2828;
+}
+
+.slide-in-left{
+    animation: slide-in-left .5s cubic-bezier(.25, .46, .45, .94)both;
+
 }
 
 /* OSCURECER FONDO */
@@ -183,9 +189,9 @@ body {
     outline: 2px solid #00eaff;
 }
 .go-down-arrow {
+    display: none;
     width: 50px;
     height: 50px;
-    display: flex;
     position: fixed;
     bottom: 50px;
     left: 50%;
@@ -204,6 +210,10 @@ body {
     z-index: 10;
     pointer-events: none;
 }
+.go-down-arrow.visible{
+    display: flex;
+
+}
 .circle-button-shadow{
     box-shadow: 0px 0px 10px 10px rgb(136, 5, 5);
 
@@ -219,6 +229,20 @@ body {
     scroll-margin-top: 30px;
 
 }
+#quienesSomosBody{
+    position: relative;
+    background-image: url(/Photos/SAGA_icon-Photoroom.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 0;
+}
+#quienesSomosBody::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: -1;
+}
 
 .info .descripcion {
     font-size: 1.2rem;
@@ -229,6 +253,16 @@ body {
     font-size: 1.5rem;
     margin-bottom: 50px;
 }
+@keyframes slide-in-left{
+    0%{
+        transform: translateX(-1000px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
 /* Media Queries: ajustar responsividad horizontal */
 @media(min-height: 680px) {
     .info {
@@ -236,6 +270,7 @@ body {
 
     }
 }
+/*media horizontal celulares*/
 @media(min-width:450px){
     .principal{
         justify-content: flex-start;
@@ -243,6 +278,7 @@ body {
     .go-down-arrow{
         left: 95%;
         bottom: 20px;
-    }}
+    }
+}
 
 
