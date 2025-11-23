@@ -25,6 +25,6 @@ function scrollToInfo() {
 
 }
 logo.addEventListener('click', () =>{
-    window.location.href = "/Principal/index.html"
+    window.location.href = "index.html"
 })
 

@@ -9,7 +9,7 @@ btn.addEventListener('click', () => {
 
 });
 logo.addEventListener('click', () =>{
-    window.location.href = "/Principal/index.html"
+    window.location.href = "index.html"
 })
 overlay.addEventListener('click', () => {
     menu.classList.remove('active');
